@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenZsync School - E-Learning Platform</title>
+    <title>GenZsync School Dashboard</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,62 +30,60 @@
 </head>
 <body class="bg-light text-gray-700">
 
-    <!-- Sidebar -->
-    <div class="flex min-h-screen">
-        <aside class="bg-dark w-64 text-white py-6">
-            <div class="px-6 mb-4">
-                <h2 class="text-2xl font-bold">GenZsync School</h2>
-                <p class="mt-1 text-sm">Your Interactive Learning Hub</p>
-            </div>
-            <nav class="px-6 mt-6">
-                <ul class="space-y-4">
-                    <li><a href="Dashboard.html" class="flex items-center p-2 text-white hover:bg-medium rounded"><i class="fas fa-home mr-3"></i> Dashboard</a></li>
-                    <li><a href="#" class="flex items-center p-2 text-white hover:bg-medium rounded"><i class="fas fa-user-friends mr-3"></i> Peer Support</a></li>
-                    <li><a href="#" class="flex items-center p-2 text-white hover:bg-medium rounded"><i class="fas fa-sign-in-alt mr-3"></i> Login</a></li>
-                    <li><a href="#" class="flex items-center p-2 text-white hover:bg-medium rounded"><i class="fas fa-user-plus mr-3"></i> Sign Up</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+            return (
+                <div>
+                    {/* Header */}
+                    <header className="bg-dark p-4 flex justify-between items-center">
+                        <div className="flex items-center">
+                            <button className="text-white text-2xl">
+                                <i className="fas fa-bars"></i>
+                            </button>
+                            <a href="index.html" className="ml-4 text-white text-2xl font-bold">GenZsync</a>
+                        </div>
+                        <div className="flex items-center">
+                            <button className="bg-black text-white px-4 py-2 rounded">Dashboard</button>
+                            <div className="relative ml-4">
+                                <input type="text" placeholder="Search for activities or resources" className="px-4 py-2 rounded-full border border-gray-300 w-64" />
+                                <i className="fas fa-search absolute right-3 top-3 text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex items-center">
+                            <button className="bg-medium text-white px-4 py-2 rounded ml-4">Sign Up</button>
+                            <button className="bg-gray-200 text-black px-4 py-2 rounded ml-4">Log In</button>
+                        </div>
+                    </header>
 
-        <!-- Main Content -->
-        <main class="flex-1 p-8">
-            <!-- Platform Overview -->
-            <section class="mb-12">
-                <h1 class="text-4xl font-bold text-primary mb-4">Welcome to GenZsync School</h1>
-                <p class="text-lg">GenZsync is an e-learning platform tailored to align with the national curriculum, providing an interactive environment for students to learn and grow. Designed to make education engaging, GenZsync connects students with a variety of educational resources and activities, encouraging collaborative learning through peer support.</p>
-            </section>
+                    {/* Main Content */}
+                    <main className="flex flex-col justify-center items-center mt-16 px-4">
+                        <h1 className="text-5xl font-bold text-primary text-center">Learn, Grow, and Shine with GenZsync!</h1>
+                        <p className="text-lg mt-4 text-center">An interactive platform designed for the national curriculum to help you succeed through fun and engaging activities.</p>
+                        <button className="bg-medium text-white px-6 py-3 rounded mt-6">Explore Courses</button>
+                        
+                        <section className="mb-12 mt-16">
+                            <h1 className="text-4xl font-bold text-primary mb-4">Welcome to GenZsync School</h1>
+                            <p className="text-lg">GenZsync is an e-learning platform tailored to align with the national curriculum, providing an interactive environment for students to learn and grow. Designed to make education engaging, GenZsync connects students with a variety of educational resources and activities, encouraging collaborative learning through peer support.</p>
+                        </section>
 
-            <!-- Features Section -->
-            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                <!-- National Curriculum Alignment Card -->
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
-                    <h2 class="text-xl font-bold mb-4 text-primary">National Curriculum Aligned</h2>
-                    <p>Our courses are carefully crafted to align with the national curriculum, ensuring students receive a structured, quality education that meets academic standards.</p>
+                        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                                <h2 className="text-xl font-bold mb-4 text-primary">Interactive Dashboard</h2>
+                                <p>The dashboard provides a personalized view of each student's progress and resources, making it easy to keep track of assignments, exams, and peer activities.</p>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                                <h2 className="text-xl font-bold mb-4 text-primary">Peer Support</h2>
+                                <p>Engage with classmates through peer activities and collaborative projects, designed to foster teamwork and enhance the learning experience.</p>
+                            </div>
+                        </section>
+                    </main>
                 </div>
+            );
+        };
 
-                <!-- Interactive Dashboard Card -->
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
-                    <h2 class="text-xl font-bold mb-4 text-primary">Interactive Dashboard</h2>
-                    <p>The dashboard provides a personalized view of each student's progress and resources, making it easy to keep track of assignments, exams, and peer activities.</p>
-                </div>
-
-                <!-- Peer Support Card -->
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
-                    <h2 class="text-xl font-bold mb-4 text-primary">Peer Support</h2>
-                    <p>Engage with classmates through peer activities and collaborative projects, designed to foster teamwork and enhance the learning experience.</p>
-                </div>
-
-                <!-- Secure Login and Sign-up Card -->
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
-                    <h2 class="text-xl font-bold mb-4 text-primary">Login & Sign-up</h2>
-                    <p>Sign up to access all features, or log in to continue learning. GenZsync ensures a secure, student-friendly interface for a smooth learning experience.</p>
-                    <div class="mt-4 flex space-x-4">
-                        <a href="#" class="bg-dark text-white py-2 px-4 rounded hover:bg-medium">Login</a>
-                        <a href="#" class="bg-dark text-white py-2 px-4 rounded hover:bg-medium">Sign Up</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>
