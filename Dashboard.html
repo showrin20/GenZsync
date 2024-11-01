@@ -1,0 +1,163 @@
+<html>
+<head>
+    <title>GenZsync Dashboard</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+            background-color: #F1F8E8;
+        }
+        .bg-main-light {
+            background-color: #D8EFD3;
+        }
+        .bg-main-medium {
+            background-color: #95D2B3;
+        }
+        .bg-main-dark {
+            background-color: #55AD9B;
+        }
+    </style>
+</head>
+<body class="bg-main-light">
+    <div id="root"></div>
+    <script type="text/babel">
+        const Sidebar = () => (
+            <div className="bg-main-medium w-64 h-screen p-4 shadow-md">
+                <div className="flex items-center mb-8">
+                    <img src="https://placehold.co/40x40" alt="GenZsync Logo" className="mr-2"/>
+                    <span className="text-xl font-bold text-white">GenZsync</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li className="mb-4">
+                            <a href="#" className="flex items-center text-gray-700 hover:text-black">
+                                <i className="fas fa-school mr-2"></i>
+                                <span>Join Class</span>
+                            </a>
+                        </li>
+                        <li className="mb-4">
+                            <a href="#" className="flex items-center text-gray-700 hover:text-black bg-main-dark p-2 rounded">
+                                <i className="fas fa-book-reader mr-2"></i>
+                                <span>My Subjects</span>
+                            </a>
+                        </li>
+                        <li className="mb-4">
+                            <a href="#" className="flex items-center text-gray-700 hover:text-black">
+                                <i className="fas fa-medal mr-2"></i>
+                                <span>Achievements</span>
+                            </a>
+                        </li>
+                        <li className="mb-4">
+                            <a href="#" className="flex items-center text-gray-700 hover:text-black">
+                                <i className="fas fa-graduation-cap mr-2"></i>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li className="mb-4">
+                            <a href="#" className="flex items-center text-gray-700 hover:text-black">
+                                <i className="fas fa-user-edit mr-2"></i>
+                                <span>Build My Profile</span>
+                                <span className="bg-red-500 text-white text-xs ml-2 px-2 py-1 rounded">New</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div className="mt-auto">
+                    <div className="bg-main-light p-4 rounded mb-4">
+                        <p className="text-gray-700 mb-2">Invite Friends to Study Together</p>
+                        <button className="bg-main-dark text-white px-4 py-2 rounded mb-2">Invite Friends</button>
+                        <button className="bg-gray-700 text-white px-4 py-2 rounded">View Invites</button>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const Header = () => (
+            <div className="bg-main-medium shadow-md p-4 flex justify-between items-center">
+                <div className="flex items-center">
+                    <i className="fas fa-bars text-gray-700 mr-4"></i>
+                    <span className="text-xl font-bold text-white">My Subjects</span>
+                </div>
+                <div className="flex items-center">
+                    <i className="fas fa-bell text-gray-700 mr-4"></i>
+                    <div className="flex items-center">
+                        <img src="https://placehold.co/20x20" alt="Language" className="mr-2"/>
+                        <span>EN</span>
+                    </div>
+                    <img src="https://placehold.co/40x40" alt="User Avatar" className="ml-4 rounded-full"/>
+                </div>
+            </div>
+        );
+
+        const SubjectCard = ({ image, title, status, grade }) => (
+            <div className="bg-white shadow-md rounded p-4 w-64">
+                <img src={image} alt={title} className="w-full h-32 object-cover rounded mb-4"/>
+                <h3 className="text-lg font-bold mb-2">{title}</h3>
+                <div className="flex justify-between items-center">
+                    <span className={`text-sm ${status === 'Active' ? 'text-green-500' : 'text-gray-500'}`}>{status}</span>
+                    <span className="text-sm text-gray-500">Grade {grade}</span>
+                </div>
+            </div>
+        );
+
+        const Dashboard = () => (
+            <div className="flex">
+                <Sidebar />
+                <div className="flex-1 p-8">
+                    <Header />
+                    <div className="mt-8">
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-2xl font-bold">My Subjects</h2>
+                            <div>
+                                <button className="bg-main-dark text-white px-4 py-2 rounded mr-2">All Subjects</button>
+                                <button className="bg-main-light text-gray-700 px-4 py-2 rounded">Online Subjects</button>
+                            </div>
+                        </div>
+                        <div className="flex space-x-4 mb-8">
+                            <SubjectCard 
+                                image="https://placehold.co/200x100" 
+                                title="Mathematics" 
+                                status="Active" 
+                                grade="5" 
+                            />
+                            <SubjectCard 
+                                image="https://placehold.co/200x100" 
+                                title="Science" 
+                                status="Finished" 
+                                grade="5" 
+                            />
+                        </div>
+                        <div className="bg-white shadow-md rounded p-4">
+                            <h2 className="text-2xl font-bold mb-4">Workshops</h2>
+                            <div className="flex">
+                                <img src="https://placehold.co/200x100" alt="Workshop" className="w-64 h-32 object-cover rounded mr-4"/>
+                                <div>
+                                    <h3 className="text-lg font-bold mb-2">Science Fair Prep</h3>
+                                    <span className="text-sm text-green-500">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-64 p-4">
+                    <div className="bg-white shadow-md rounded p-4 mb-4">
+                        <h3 className="text-lg font-bold mb-2">No Classes Today</h3>
+                        <p className="text-gray-700">Use this time to catch up on assignments or review past lessons.</p>
+                    </div>
+                    <div className="bg-white shadow-md rounded p-4">
+                        <h3 className="text-lg font-bold mb-2">Need Assistance?</h3>
+                        <p className="text-gray-700">Contact your teacher or check the help section.</p>
+                    </div>
+                </div>
+            </div>
+        );
+
+        ReactDOM.render(<Dashboard />, document.getElementById('root'));
+    </script>
+</body>
+</html>
