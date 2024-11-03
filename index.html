@@ -11,22 +11,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-body {
-    font-family:  sans-serif;
-}
-.bg-light {
-    background-color: #DDE6ED; /* Updated to #DDE6ED */
-}
-.bg-medium {
-    background-color: #9DB2BF; /* Updated to #9DB2BF */
-}
-.bg-dark {
-    background-color: #526D82; /* Updated to #526D82 */
-}
-.text-primary {
-    color: #1A4870; /* Updated to #1A4870 for primary text */
-}
-
+        body {
+            font-family: sans-serif;
+        }
+        .bg-light {
+            background-color: #DDE6ED;
+        }
+        .bg-medium {
+            background-color: #9DB2BF;
+        }
+        .bg-dark {
+            background-color: #526D82;
+        }
+        .text-primary {
+            color: #1A4870;
+        }
     </style>
 </head>
 <body class="bg-light text-gray-700">
@@ -37,49 +36,46 @@ body {
             return (
                 <div>
                     {/* Header */}
-                    <header className="bg-dark p-4 flex justify-between items-center">
-                        <div className="flex items-center">
+                    <header className="bg-dark p-4 flex flex-col sm:flex-row justify-between items-center">
+                        <div className="flex items-center mb-4 sm:mb-0">
                             <button className="text-white text-2xl">
-                                <i class="fas fa-chalkboard-teacher"></i>
+                                <i className="fas fa-chalkboard-teacher"></i>
                             </button>
                             <a href="index.html" className="ml-4 text-white text-2xl font-bold">GenZsync</a>
                         </div>
-                        <div className="flex items-center">
-                            <a href="Dashboard.html">
-    <button className="bg-black text-white px-4 py-2 rounded">Dashboard</button>
-</a>                            <div className="relative ml-4">
-                                <input type="text" className="px-4 py-2 rounded-full border border-gray-300 w-64" />
-                                <i className="fas fa-search absolute right-3 top-3 text-gray-500"></i>
+                        <div className="flex flex-col sm:flex-row items-center">
+                            <a href="Dashboard.html" className="mb-2 sm:mb-0 sm:mr-4">
+                                <button className="bg-black text-white px-4 py-2 rounded">Dashboard</button>
+                            </a>
+                            <div className="relative w-full sm:w-auto">
+                                <input type="text" className="px-4 py-2 rounded-full border border-gray-300 w-full sm:w-64" placeholder="Search..." />
+                                <i className="fas fa-search absolute right-4 top-3 text-gray-500"></i>
                             </div>
                         </div>
-                        <div className="flex items-center">
-                            <a href="signup.html" className="bg-medium text-white px-4 py-2 rounded ml-4">
-    Sign Up
-</a>
-<a href="login.html" className="bg-gray-200 text-black px-4 py-2 rounded ml-4">
-    Log In
-</a>
+                        <div className="flex mt-4 sm:mt-0">
+                            <a href="signup.html" className="bg-medium text-white px-4 py-2 rounded mr-4">Sign Up</a>
+                            <a href="login.html" className="bg-gray-200 text-black px-4 py-2 rounded">Log In</a>
                         </div>
                     </header>
 
                     {/* Main Content */}
-                    <main className="flex flex-col justify-center items-center mt-16 px-4">
-                        <h1 className="text-5xl font-bold text-primary text-center">Learn, Grow, and Shine with GenZsync!</h1>
-                        <p className="text-lg mt-4 text-center">An interactive platform designed for the national curriculum to help you succeed through fun and engaging activities.</p>
-                        <a href="courses.html">
-    <button className="bg-medium text-white px-6 py-3 rounded mt-6">Explore Courses</button>
-</a>                        
-                        <section className="mb-12 mt-16">
-                            <h1 className="text-4xl font-bold text-primary mb-4">Welcome to GenZsync School</h1>
-                            <p className="text-lg">GenZsync is an e-learning platform tailored to align with the national curriculum, providing an interactive environment for students to learn and grow. Designed to make education engaging, GenZsync connects students with a variety of educational resources and activities, encouraging collaborative learning through peer support.</p>
+                    <main className="flex flex-col justify-center items-center mt-8 sm:mt-16 px-4">
+                        <h1 className="text-3xl sm:text-5xl font-bold text-primary text-center">Learn, Grow, and Shine with GenZsync!</h1>
+                        <p className="text-base sm:text-lg mt-4 text-center">An interactive platform designed for the national curriculum to help you succeed through fun and engaging activities.</p>
+                        <a href="courses.html" className="mt-6">
+                            <button className="bg-medium text-white px-6 py-3 rounded">Explore Courses</button>
+                        </a>                        
+                        
+                        <section className="text-center mt-12">
+                            <h2 className="text-2xl sm:text-4xl font-bold text-primary mb-4">Welcome to GenZsync School</h2>
+                            <p className="text-base sm:text-lg">GenZsync is an e-learning platform tailored to align with the national curriculum, providing an interactive environment for students to learn and grow. Designed to make education engaging, GenZsync connects students with a variety of educational resources and activities, encouraging collaborative learning through peer support.</p>
                         </section>
 
-                        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <section className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 sm:mt-16 px-4 w-full max-w-4xl">
                             <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
                                 <h2 className="text-xl font-bold mb-4 text-primary">Interactive Dashboard</h2>
                                 <p>The dashboard provides a personalized view of each student's progress and resources, making it easy to keep track of assignments, exams, and peer activities.</p>
                             </div>
-
                             <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
                                 <h2 className="text-xl font-bold mb-4 text-primary">Peer Support</h2>
                                 <p>Engage with classmates through peer activities and collaborative projects, designed to foster teamwork and enhance the learning experience.</p>

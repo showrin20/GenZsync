@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: sans-serif;
-            color: #1A4870; /* Text primary color */
+            color: #1A4870;
         }
         .bg-light {
             background-color: #DDE6ED;
@@ -32,34 +32,10 @@
     <div id="root"></div>
     <script type="text/babel">
         const courses = [
-            {
-                title: "Introduction to Computer",
-                image: "https://placehold.co/600x400?text=Intro+to+CS",
-                batch: "Semester 1",
-                hours: "120+ hours",
-                days: "102 days remaining"
-            },
-            {
-                title: "Calculus I",
-                image: "https://placehold.co/600x400?text=Calculus+I",
-                batch: "Semester 1",
-                hours: "80+ hours",
-                days: "45 days remaining"
-            },
-            {
-                title: "Introduction to Psychology",
-                image: "https://placehold.co/600x400?text=Intro+to+Psychology",
-                batch: "Semester 1",
-                hours: "60+ hours",
-                days: "72 days remaining"
-            },
-            {
-                title: "Physics I",
-                image: "https://placehold.co/600x400?text=Physics+for+Engineers",
-                batch: "Semester 2",
-                hours: "100+ hours",
-                days: "130 days remaining"
-            }
+            { title: "Introduction to Computer", image: "https://placehold.co/600x400?text=Intro+to+CS", batch: "Semester 1", hours: "120+ hours", days: "102 days remaining" },
+            { title: "Calculus I", image: "https://placehold.co/600x400?text=Calculus+I", batch: "Semester 1", hours: "80+ hours", days: "45 days remaining" },
+            { title: "Introduction to Psychology", image: "https://placehold.co/600x400?text=Intro+to+Psychology", batch: "Semester 1", hours: "60+ hours", days: "72 days remaining" },
+            { title: "Physics I", image: "https://placehold.co/600x400?text=Physics+for+Engineers", batch: "Semester 2", hours: "100+ hours", days: "130 days remaining" }
         ];
 
         const categories = [
@@ -71,35 +47,34 @@
 
         function App() {
             return (
-                <div className="container mx-auto">
-                    <header className="bg-dark p-4 flex justify-between items-center">
-                        <div className="flex items-center">
+                <div className="container mx-auto px-4">
+                    <header className="bg-dark p-4 flex flex-wrap justify-between items-center">
+                        <div className="flex items-center space-x-4 w-full sm:w-auto justify-center sm:justify-start">
                             <button className="text-white text-2xl">
-                                <i className="fas fa-bars"></i>
+                                <i className="fas fa-chalkboard-teacher"></i>
                             </button>
-                            <a href="index.html" className="ml-4 text-white text-2xl font-bold">GenZsync</a>
+                            <a href="index.html" className="text-white text-2xl font-bold">GenZsync</a>
                         </div>
-                        <div className="flex items-center">
+                        <div className="flex flex-wrap items-center justify-center sm:justify-end space-x-4 w-full sm:w-auto mt-2 sm:mt-0">
                             <a href="Dashboard.html">
-    <button className="bg-black text-white px-4 py-2 rounded">Dashboard</button>
-</a>                            <div className="relative ml-4">
-                                <input type="text" className="px-4 py-2 rounded-full border border-gray-300 w-64" />
-                                <i className="fas fa-search absolute right-3 top-3 text-gray-500"></i>
+                                <button className="bg-black text-white px-4 py-2 rounded">Dashboard</button>
+                            </a>
+                            <div className="relative w-full sm:w-64 mt-2 sm:mt-0">
+                                <input type="text" className="px-4 py-2 w-full rounded-full border border-gray-300" placeholder="Search" />
+                                <i className="fas fa-search absolute right-4 top-3 text-gray-500"></i>
                             </div>
-                        </div>
-                        <div className="flex items-center">
                             <a href="signup.html" className="bg-medium text-white px-4 py-2 rounded ml-4">
-    Sign Up
-</a>
-<a href="login.html" className="bg-gray-200 text-black px-4 py-2 rounded ml-4">
-    Log In
-</a>
+                                Sign Up
+                            </a>
+                            <a href="login.html" className="bg-gray-200 text-black px-4 py-2 rounded ml-4">
+                                Log In
+                            </a>
                         </div>
                     </header>
                     <h1 className="text-3xl font-bold text-center my-6 text-primary">Our Academic Courses</h1>
-                    <div className="flex justify-center space-x-4 mb-6">
+                    <div className="flex flex-wrap justify-center space-x-4 mb-6">
                         {categories.map((category, index) => (
-                            <div key={index} className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-2 border border-medium">
+                            <div key={index} className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-2 border border-medium w-full sm:w-auto mt-2 sm:mt-0">
                                 <i className={`${category.icon} text-xl text-medium`}></i>
                                 <div>
                                     <h2 className="font-semibold text-primary">{category.name}</h2>
@@ -108,15 +83,15 @@
                             </div>
                         ))}
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {courses.map((course, index) => (
                             <div key={index} className="bg-white p-4 rounded-lg shadow-md border border-gray-200">
                                 <img src={course.image} alt={course.title} className="rounded-t-lg w-full h-40 object-cover" />
                                 <div className="p-4">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="bg-light text-primary text-xs px-2 py-1 rounded">{course.batch}</span>
-                                        <span className="bg-light text-primary text-xs px-2 py-1 rounded">{course.hours}</span>
-                                        <span className="bg-light text-primary text-xs px-2 py-1 rounded">{course.days}</span>
+                                    <div className="flex flex-wrap justify-between items-center mb-2">
+                                        <span className="bg-light text-primary text-xs px-2 py-1 rounded mb-2">{course.batch}</span>
+                                        <span className="bg-light text-primary text-xs px-2 py-1 rounded mb-2">{course.hours}</span>
+                                        <span className="bg-light text-primary text-xs px-2 py-1 rounded mb-2">{course.days}</span>
                                     </div>
                                     <h3 className="text-lg font-semibold mb-2 text-primary">{course.title}</h3>
                                     <button className="bg-medium text-white px-4 py-2 rounded-lg w-full flex justify-center items-center hover:bg-dark">
